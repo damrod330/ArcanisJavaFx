@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.interfaces;
 
 import com.example.demo.controller.PageController;
 import javafx.fxml.Initializable;

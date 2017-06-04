@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.controller.LoginPageController;
+import com.example.demo.controller.MainPageController;
 import com.example.demo.controller.PageController;
 import com.example.demo.controller.TestController;
 import javafx.application.Application;
@@ -29,8 +31,11 @@ public class ArcanisApplication extends Application{
 		launch(args);
 	}
 
-	public static final String pageTest = "pageTest";
-	public static final String pageTestFile = "scene/test.fxml";
+	public static final String pageLogin = "pageLogin";
+	public static final String pageLOginFile = "scene/pages/LoginPage.fxml";
+
+    public static final String pageMain = "pageMain";
+    public static final String pageMainFile = "scene/pages/MainPage.fxml";
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -45,10 +50,13 @@ public class ArcanisApplication extends Application{
 		task.setOnSucceeded((WorkerStateEvent e) -> {
 			PageController pageContainer = new PageController();
 
-			TestController chooseSeatController = springContext.getBean(TestController.class);
-			pageContainer.loadPageWithContorller(ArcanisApplication.pageTest, ArcanisApplication.pageTestFile, chooseSeatController);
+			LoginPageController loginPageController = springContext.getBean(LoginPageController.class);
+            MainPageController mainPageController = springContext.getBean(MainPageController.class);
 
-			pageContainer.setPage(ArcanisApplication.pageTest);
+			pageContainer.loadPageWithContorller(ArcanisApplication.pageLogin, ArcanisApplication.pageLOginFile, loginPageController);
+            pageContainer.loadPageWithContorller(pageMain, pageLogin, mainPageController);
+
+			pageContainer.setPage(ArcanisApplication.pageLogin);
 
 			BorderPane root = new BorderPane();
 			root.setCenter(pageContainer);
@@ -62,10 +70,9 @@ public class ArcanisApplication extends Application{
 					primaryStage.setFullScreen(false);
 				}
 			});
-			primaryStage.setMinHeight(800);
-			primaryStage.setMinWidth(620);
-			primaryStage.setMaxHeight(1080);
-			primaryStage.setMaxWidth(1920);
+            primaryStage.setMinWidth(800);
+			primaryStage.setMinHeight(600);
+
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Arcanis");
 			primaryStage.show();

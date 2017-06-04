@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.BootInitializable;
+import com.example.demo.interfaces.BootInitializable;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -12,9 +12,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
-
 
 public class PageController extends StackPane {
 
