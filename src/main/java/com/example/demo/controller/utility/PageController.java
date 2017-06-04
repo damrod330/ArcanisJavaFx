@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.utility;
 
 import com.example.demo.interfaces.BootInitializable;
 import javafx.animation.KeyFrame;
@@ -16,7 +16,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 
-public class PageController extends StackPane {
+@Component
+public class PageController extends StackPane{
 
     private HashMap<String, Node> pages = new HashMap<>();
 

@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.utility;
 
 import com.example.demo.interfaces.BootInitializable;
 import com.example.demo.services.UserService;
@@ -26,28 +26,13 @@ public class TestController implements BootInitializable {
     UserService userService;
 
     @Override
-    public void initConstruct() {
-       // System.out.println(userService.findByUserId((1)).getUsername());
-    }
-
-    @Override
     public void setPageParrent(PageController parentPage) {
         pageController = parentPage;
     }
 
-
-    @Override
-    public void stage(Stage primaryStage) {
-    }
-
-    @Override
-    public Node initView() {
-        return null;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initConstruct();
+
     }
 
     @Override

@@ -1,15 +1,17 @@
 package com.example.demo.controller;
 
-import com.example.demo.ArcanisApplication;
+import com.example.demo.controller.utility.PageController;
+import com.example.demo.controller.utility.Session;
 import com.example.demo.interfaces.BootInitializable;
+import com.example.demo.model.User;
 import com.example.demo.services.UserService;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -31,28 +33,13 @@ public class LoginPageController implements BootInitializable {
     UserService userService;
 
     @Override
-    public void initConstruct() {
-        System.out.println("Controller initialized");
-    }
-
-    @Override
     public void setPageParrent(PageController parentPage) {
         pageController = parentPage;
     }
 
     @Override
-    public void stage(Stage primaryStage) {
-
-    }
-
-    @Override
-    public Node initView() {
-        return null;
-    }
-
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initConstruct();
+
     }
 
     @Override
@@ -64,28 +51,40 @@ public class LoginPageController implements BootInitializable {
     private TextField usernameTextField;
 
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
 
     @FXML
-    private CheckBox RememberMeCheckBox;
+    private CheckBox rememberMeCheckBox;
 
     @FXML
-    private Button LoginButton;
+    private Button loginButton;
 
     @FXML
-    private Button RegisterButton;
+    private Button registerButton;
 
     @FXML
-    void CheckboxRememberMeClicked(MouseEvent event) {
+    private Text errorText;
+
+    @FXML
+    void checkboxRememberMeClicked(MouseEvent event) {
 
     }
 
     @FXML
     void buttonLoginClicked(MouseEvent event) {
+        User user = userService.findByUsername(usernameTextField.getText());
 
-        MainPageController mainPageController = springContext.getBean(MainPageController.class);
-        pageController.loadPageWithContorller(ArcanisApplication.pageMain, ArcanisApplication.pageLogin, mainPageController);
-        pageController.setPage(ArcanisApplication.pageMain);
+        if (user != null) {
+            if (user.getPassword().equals(passwordTextField.getText())) {
+                errorText.setText("");
+                Session session = springContext.getBean(Session.class);
+                session.login(user);
+            } else {
+                errorText.setText("Password is wrong");
+            }
+        } else {
+            errorText.setText("User dosn't exist");
+        }
     }
 
     @FXML

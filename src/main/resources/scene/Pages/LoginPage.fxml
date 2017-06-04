@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url(images/login_bg.jpg); -fx-border-color: #aeafad;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" spacing="12.0" style="-fx-border-color: #aeafad; -fx-background-color: white;">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" spacing="12.0" style="-fx-border-color: #aeafad; -fx-background-color: #ffffffd9;">
          <children>
             <VBox>
                <children>
@@ -44,13 +44,13 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" GridPane.rowIndex="1" />
                   <TextField fx:id="usernameTextField" GridPane.columnIndex="1" />
-                  <TextField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <CheckBox fx:id="RememberMeCheckBox" mnemonicParsing="false" onMouseClicked="#CheckboxRememberMeClicked" text="Remember Me" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <PasswordField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" onMouseClicked="#checkboxRememberMeClicked" text="Remember Me" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <HBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button fx:id="LoginButton" mnemonicParsing="false" onMouseClicked="#buttonLoginClicked" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #5d6e7f;" text="Login" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#buttonLoginClicked" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #5d6e7f;" text="Login" textAlignment="CENTER" textFill="WHITE">
                      <padding>
                         <Insets bottom="14.0" left="22.0" right="22.0" top="14.0" />
                      </padding>
@@ -58,7 +58,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="RegisterButton" mnemonicParsing="false" onMouseClicked="#buttonRegisterClicked" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #7f6e5d;" text="Register" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="registerButton" mnemonicParsing="false" onMouseClicked="#buttonRegisterClicked" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #7f6e5d;" text="Register" textAlignment="CENTER" textFill="WHITE">
                      <padding>
                         <Insets bottom="14.0" left="22.0" right="22.0" top="14.0" />
                      </padding>
@@ -68,7 +68,11 @@
                   </Button>
                </children>
             </HBox>
-            <Hyperlink text="Don't have account yet? Register now!" />
+            <Text fx:id="errorText" fill="#f22e2e" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
          </children>
          <padding>
             <Insets bottom="24.0" left="48.0" right="48.0" top="24.0" />

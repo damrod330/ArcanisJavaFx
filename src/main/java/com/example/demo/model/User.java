@@ -16,9 +16,42 @@ public class User {
     private String password;
     private String email;
     private String avatar;
-    
+    private boolean isLoginedIn;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<PlayableCharacter> character;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public boolean isLoginedIn() {
+        return isLoginedIn;
+    }
+
+    public void setLoginedIn(boolean loginedIn) {
+        isLoginedIn = loginedIn;
+    }
+
+    public List<PlayableCharacter> getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(List<PlayableCharacter> character) {
+        this.character = character;
+    }
 
     public long getUserId() {
         return userId;

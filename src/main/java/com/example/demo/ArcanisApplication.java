@@ -1,24 +1,18 @@
 package com.example.demo;
 
 import com.example.demo.controller.LoginPageController;
-import com.example.demo.controller.MainPageController;
-import com.example.demo.controller.PageController;
-import com.example.demo.controller.TestController;
+import com.example.demo.controller.utility.PageController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.io.IOException;
 
 @SpringBootApplication
 public class ArcanisApplication extends Application{
@@ -48,13 +42,11 @@ public class ArcanisApplication extends Application{
 		};
 
 		task.setOnSucceeded((WorkerStateEvent e) -> {
-			PageController pageContainer = new PageController();
+			PageController pageContainer = springContext.getBean(PageController.class);
 
 			LoginPageController loginPageController = springContext.getBean(LoginPageController.class);
-            MainPageController mainPageController = springContext.getBean(MainPageController.class);
 
 			pageContainer.loadPageWithContorller(ArcanisApplication.pageLogin, ArcanisApplication.pageLOginFile, loginPageController);
-            pageContainer.loadPageWithContorller(pageMain, pageLogin, mainPageController);
 
 			pageContainer.setPage(ArcanisApplication.pageLogin);
 
