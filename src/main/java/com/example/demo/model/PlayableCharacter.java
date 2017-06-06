@@ -21,6 +21,7 @@ public class PlayableCharacter {
 
     private int level;
     private int experience;
+    private int experienceRequaiered;
 
     private int maxHp;
     private int currentHp;
@@ -39,8 +40,26 @@ public class PlayableCharacter {
 
     private boolean isDead;
 
+    public int getUnusedPoints() {
+        return unusedPoints;
+    }
+
+    public void setUnusedPoints(int unusedPoints) {
+        this.unusedPoints = unusedPoints;
+    }
+
+    private int unusedPoints;
+
     public int getLevel() {
         return level;
+    }
+
+    public int getExperienceRequaiered() {
+        return experienceRequaiered;
+    }
+
+    public void setExperienceRequaiered(int experienceRequaiered) {
+        this.experienceRequaiered = experienceRequaiered;
     }
 
     public void setLevel(int level) {

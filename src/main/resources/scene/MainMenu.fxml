@@ -2,22 +2,136 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox style="-fx-border-color: #aeafad; -fx-background-color: #ffffffbb;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="menuContainer" alignment="CENTER_LEFT" spacing="4.0" style="-fx-border-color: #aeafad;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#393737" strokeType="OUTSIDE" strokeWidth="0.0" text="ARCANIS">
+      <Text fill="#242828" stroke="#4c11b8" strokeType="OUTSIDE" strokeWidth="0.0" text="ARCANIS">
          <font>
             <Font name="Constantia Bold" size="64.0" />
          </font>
+         <HBox.margin>
+            <Insets bottom="24.0" left="24.0" right="256.0" top="24.0" />
+         </HBox.margin>
       </Text>
-      <Button fx:id="btnMainPage" mnemonicParsing="false" onMouseClicked="#btnMainPageClicked" prefHeight="64.0" prefWidth="124.0" text="Main " />
-      <Button fx:id="btnQuestPage" mnemonicParsing="false" onMouseClicked="#btnQuestPageClicked" prefHeight="64.0" prefWidth="124.0" text="Quests" />
-      <Button fx:id="btnLoginPage" mnemonicParsing="false" onMouseClicked="#btnLoginPageClicked" prefHeight="64.0" prefWidth="124.0" text="Login" />
+      <VBox alignment="CENTER" spacing="4.0">
+         <children>
+            <Button fx:id="btnMainPage" alignment="BOTTOM_CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#btnMainPageClicked" prefHeight="64.0" prefWidth="64.0" style="-fx-background-image: url(images/icons/icon02_min.jpg); -fx-border-color: #aeafad;" textAlignment="CENTER" textFill="#3c3c3c" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Text>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="12.0" right="12.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" spacing="4.0">
+         <children>
+            <Button fx:id="btnQuestPage" alignment="BOTTOM_CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#btnQuestPageClicked" prefHeight="64.0" prefWidth="64.0" style="-fx-background-image: url(images/icons/icon01_min.jpg); -fx-border-color: #aeafad;" textAlignment="CENTER" textFill="#3c3c3c" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADVENTURE">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" spacing="4.0">
+         <children>
+            <Button fx:id="btnLoginPage" alignment="BOTTOM_CENTER" ellipsisString="" mnemonicParsing="false" onMouseClicked="#btnLoginPageClicked" prefHeight="64.0" prefWidth="64.0" style="-fx-background-image: url(images/icons/icon03_min.jpg); -fx-border-color: #aeafad;" textAlignment="CENTER" textFill="#3c3c3c" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOG OUT">
+               <font>
+                  <Font name="Sitka Small" size="12.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="12.0" right="12.0" />
+         </padding>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="103.0" prefWidth="100.0">
+         <children>
+            <Text fx:id="nicknameText" fill="#008fd8" strokeType="OUTSIDE" strokeWidth="0.0" text="damrod">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Text>
+            <GridPane hgap="4.0" prefHeight="50.0" vgap="4.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="lvl: ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="hp:" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="levelText" fill="#ba4200" strokeType="OUTSIDE" strokeWidth="0.0" text="14" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="hpText" fill="#ba4200" strokeType="OUTSIDE" strokeWidth="0.0" text="54%" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+      </VBox>
    </children>
    <padding>
-      <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+      <Insets right="48.0" />
    </padding>
 </HBox>

@@ -6,6 +6,8 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -13,6 +15,8 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.io.IOException;
 
 @SpringBootApplication
 public class ArcanisApplication extends Application{
@@ -30,6 +34,9 @@ public class ArcanisApplication extends Application{
 
     public static final String pageRegister = "pageRegister";
     public static final String pageRegisterFile = "scene/Pages/RegisterPage.fxml";
+
+	public static final String pageChooseCharacter = "pageChooseCharacter";
+	public static final String pageChooseCharacterFile = "scene/Pages/ChooseCharacterPage.fxml";
 
 	public static final String pageMain = "pageMain";
 	public static final String pageMainFile = "scene/Pages/MainPage.fxml";
@@ -62,6 +69,14 @@ public class ArcanisApplication extends Application{
 
 			BorderPane root = new BorderPane();
 			root.setCenter(pageContainer);
+
+        	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene/MainLogo.fxml"));
+        	try {
+				Node mainLogo = fxmlLoader.load();
+				root.setTop(mainLogo);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 
 			Scene scene = new Scene(root);
 			scene.setOnKeyPressed(event -> {
