@@ -18,6 +18,7 @@ public class Quest {
     private String title;
     private String description;
 
+
     private int baseHpCost;
     private int expReward;
     private int questCp;

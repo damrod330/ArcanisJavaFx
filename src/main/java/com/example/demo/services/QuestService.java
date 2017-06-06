@@ -10,6 +10,5 @@ import java.util.List;
  */
 public interface QuestService extends JpaRepository<Quest, Long> {
     List<Quest> findAll();
-
     Quest questId(long id);
 }

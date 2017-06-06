@@ -80,6 +80,9 @@ public class MainPageController implements BootInitializable {
     private Text nicknameText;
 
     @FXML
+    private Text guildText;
+
+    @FXML
     private Text levelText;
 
     @FXML
@@ -89,19 +92,10 @@ public class MainPageController implements BootInitializable {
     private Text strText;
 
     @FXML
-    private Button buttonAddStr;
-
-    @FXML
     private Text dexText;
 
     @FXML
-    private Button buttonAddDex;
-
-    @FXML
     private Text intText;
-
-    @FXML
-    private Button buttonAddInt;
 
     @FXML
     private Text expText;
@@ -110,13 +104,19 @@ public class MainPageController implements BootInitializable {
     private Text powerText;
 
     @FXML
-    private Button buttonLevelUp;
+    private Button buttonAddStr;
 
     @FXML
-    private Button buttonSpednPoints;
+    private Button buttonAddDex;
+
+    @FXML
+    private Button buttonAddInt;
 
     @FXML
     private Text pointsAvalibleText;
+
+    @FXML
+    private Button buttonLevelUp;
 
     @FXML
     void buttonAddDexClicked(MouseEvent event) {

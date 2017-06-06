@@ -10,6 +10,5 @@ import java.util.List;
  */
 public interface PlayableCharactrService extends JpaRepository<PlayableCharacter, Long> {
     List<PlayableCharacter> findAll();
-
-    PlayableCharacter findByPlayableCharacterId(long id);
+    PlayableCharacter findByName(String name);
 }

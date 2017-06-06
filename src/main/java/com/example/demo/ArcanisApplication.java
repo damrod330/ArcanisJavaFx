@@ -66,7 +66,7 @@ public class ArcanisApplication extends Application{
 			LoginPageController loginPageController = springContext.getBean(LoginPageController.class);
 			pageContainer.loadPageWithContorller(ArcanisApplication.pageLogin, ArcanisApplication.pageLOginFile, loginPageController);
 
-			pageContainer.setPage(ArcanisApplication.pageRegister);
+			pageContainer.setPage(ArcanisApplication.pageLogin);
 
 			BorderPane root = new BorderPane();
 			root.setStyle("-fx-background-color: white");

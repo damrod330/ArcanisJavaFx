@@ -58,7 +58,6 @@ public class Session implements ApplicationContextAware {
         //load pages
         MainPageController mainPageController = springContext.getBean(MainPageController.class);
         pageController.loadPageWithContorller(ArcanisApplication.pageMain, ArcanisApplication.pageMainFile, mainPageController);
-
         QuestPageController questPageController = springContext.getBean(QuestPageController.class);
         pageController.loadPageWithContorller(ArcanisApplication.pageQuest, ArcanisApplication.pageQuestFile, questPageController);
 

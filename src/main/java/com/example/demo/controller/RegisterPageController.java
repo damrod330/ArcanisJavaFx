@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.ArcanisApplication;
 import com.example.demo.controller.utility.PageController;
 import com.example.demo.interfaces.BootInitializable;
+import com.example.demo.model.PlayableCharacter;
 import com.example.demo.model.User;
 import com.example.demo.services.PlayableCharactrService;
 import com.example.demo.services.UserService;
@@ -19,6 +20,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 /**
@@ -113,13 +117,34 @@ public class RegisterPageController implements BootInitializable {
         newUser.setPassword(passwordTextField.getText());
         newUser.setEmail(emailTextField.getText());
 
-        userService.save(newUser);
+
         errorText.setText("Account registered");
-        createCharacter(newUser);
+        newUser.setCharacter(createCharacter(newUser));
+        userService.save(newUser);
     }
 
-    private void createCharacter(User user) {
+    private List<PlayableCharacter> createCharacter(User user) {
+        List <PlayableCharacter> list = new ArrayList<>();
+        PlayableCharacter playableCharacter = new PlayableCharacter();
 
+        playableCharacter.setName(user.getUsername());
+        playableCharacter.setExperienceRequaiered(500);
+        playableCharacter.setExperience(0);
+        playableCharacter.setUnusedPoints(10);
+        playableCharacter.setLevel(1);
+
+        playableCharacter.setStrenght(new Random().nextInt(15));
+        playableCharacter.setInteligence(new Random().nextInt(15));
+        playableCharacter.setDexterity(new Random().nextInt(15));
+
+        playableCharacter.setCurrentHp(100);
+        playableCharacter.setMaxHp(100);
+
+        playableCharactrService.save(playableCharacter);
+        playableCharacter = playableCharactrService.findByName(user.getUsername());
+        list.add(playableCharacter);
+        errorText.setText(errorText.getText()+" and created character");
+        return list;
     }
 
 }

@@ -18,7 +18,7 @@ public class User {
     private String avatar;
     private boolean isLoginedIn;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<PlayableCharacter> character;
 
     public String getEmail() {
