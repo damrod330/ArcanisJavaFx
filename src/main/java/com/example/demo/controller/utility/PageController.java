@@ -44,7 +44,7 @@ public class PageController extends StackPane{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getClassLoader().getResource(res));
             Parent loadPage = (Parent) fxmlLoader.load();
             BootInitializable currentPage  = (BootInitializable) fxmlLoader.getController();
-            currentPage.setPageParrent(this);
+            //currentPage.setPageParrent(this);
             addPage(name, loadPage);
             return true;
         }catch (Exception e){
@@ -59,7 +59,7 @@ public class PageController extends StackPane{
             fxmlLoader.setController(controller);
             Parent loadPage = (Parent) fxmlLoader.load();
             BootInitializable currentPage  = (BootInitializable) fxmlLoader.getController();
-            currentPage.setPageParrent(this);
+            //currentPage.setPageParrent(this);
             addPage(name, loadPage);
             return true;
         }catch (Exception e){
