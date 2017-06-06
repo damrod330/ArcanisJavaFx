@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <HBox style="-fx-border-color: #aeafad; -fx-background-color: #ffffffbb;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -16,12 +13,9 @@
             <Font name="Constantia Bold" size="64.0" />
          </font>
       </Text>
-      <Separator prefWidth="300.0" />
-      <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true">
-         <image>
-            <Image url=" url(images/icons/map01.jpg)" />
-         </image>
-      </ImageView>
+      <Button fx:id="btnMainPage" mnemonicParsing="false" onMouseClicked="#btnMainPageClicked" prefHeight="64.0" prefWidth="124.0" text="Main " />
+      <Button fx:id="btnQuestPage" mnemonicParsing="false" onMouseClicked="#btnQuestPageClicked" prefHeight="64.0" prefWidth="124.0" text="Quests" />
+      <Button fx:id="btnLoginPage" mnemonicParsing="false" onMouseClicked="#btnLoginPageClicked" prefHeight="64.0" prefWidth="124.0" text="Login" />
    </children>
    <padding>
       <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />

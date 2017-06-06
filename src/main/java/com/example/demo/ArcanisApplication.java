@@ -26,10 +26,20 @@ public class ArcanisApplication extends Application{
 	}
 
 	public static final String pageLogin = "pageLogin";
-	public static final String pageLOginFile = "scene/pages/LoginPage.fxml";
+	public static final String pageLOginFile = "scene/Pages/LoginPage.fxml";
 
-    public static final String pageMain = "pageMain";
-    public static final String pageMainFile = "scene/pages/MainPage.fxml";
+    public static final String pageRegister = "pageRegister";
+    public static final String pageRegisterFile = "scene/Pages/RegisterPage.fxml";
+
+	public static final String pageMain = "pageMain";
+	public static final String pageMainFile = "scene/Pages/MainPage.fxml";
+
+	public static final String pageQuest = "pageQuest";
+	public static final String pageQuestFile = "scene/Pages/QuestPage.fxml";
+
+
+	public static final String mainMenu = "MainMenu";
+	public static final String mainMenuFile = "scene/MainMenu.fxml";
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url(images/login_bg.jpg); -fx-border-color: #aeafad;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" spacing="12.0" style="-fx-border-color: #aeafad; -fx-background-color: #ffffffd9;">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" spacing="12.0" style="-fx-border-color: #aeafad; -fx-background-color: #ffffffbb;">
          <children>
             <VBox>
                <children>
@@ -43,8 +43,8 @@
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" GridPane.rowIndex="1" />
-                  <TextField fx:id="usernameTextField" GridPane.columnIndex="1" />
-                  <PasswordField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="usernameTextField" text="damrod" GridPane.columnIndex="1" />
+                  <PasswordField fx:id="passwordTextField" text="damrod123" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <CheckBox fx:id="rememberMeCheckBox" mnemonicParsing="false" onMouseClicked="#checkboxRememberMeClicked" text="Remember Me" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>

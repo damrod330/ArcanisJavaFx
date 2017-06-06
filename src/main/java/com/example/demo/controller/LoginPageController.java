@@ -33,11 +33,6 @@ public class LoginPageController implements BootInitializable {
     UserService userService;
 
     @Override
-    public void setPageParrent(PageController parentPage) {
-        pageController = parentPage;
-    }
-
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
@@ -45,6 +40,7 @@ public class LoginPageController implements BootInitializable {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.springContext = applicationContext;
+        pageController = springContext.getBean(PageController.class);
     }
 
     @FXML

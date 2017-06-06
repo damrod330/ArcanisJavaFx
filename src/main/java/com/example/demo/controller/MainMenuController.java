@@ -1,4 +1,4 @@
-package com.example.demo.controller.utility;
+package com.example.demo.controller;
 
 import com.example.demo.ArcanisApplication;
 import com.example.demo.controller.utility.PageController;
