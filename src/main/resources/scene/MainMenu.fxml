@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="menuContainer" alignment="CENTER_LEFT" spacing="4.0" style="-fx-border-color: #aeafad;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="menuContainer" alignment="CENTER_LEFT" cache="true" cacheHint="SCALE_AND_ROTATE" fillHeight="false" spacing="8.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text fill="#242828" stroke="#4c11b8" strokeType="OUTSIDE" strokeWidth="0.0" text="ARCANIS">
          <font>
             <Font name="Constantia Bold" size="64.0" />
          </font>
          <HBox.margin>
-            <Insets bottom="24.0" left="24.0" right="256.0" top="24.0" />
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
          </HBox.margin>
       </Text>
       <VBox alignment="CENTER" spacing="4.0">
@@ -26,6 +27,9 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER">
                <font>
@@ -37,8 +41,11 @@
             <Insets />
          </HBox.margin>
          <padding>
-            <Insets left="12.0" right="12.0" />
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </VBox>
       <VBox alignment="CENTER" spacing="4.0">
          <children>
@@ -46,6 +53,9 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ADVENTURE">
                <font>
@@ -66,6 +76,9 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOG OUT">
                <font>
@@ -74,13 +87,13 @@
             </Text>
          </children>
          <padding>
-            <Insets left="12.0" right="12.0" />
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
          </padding>
          <HBox.margin>
             <Insets />
          </HBox.margin>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="103.0" prefWidth="100.0">
+      <VBox alignment="CENTER" prefWidth="100.0" spacing="4.0">
          <children>
             <Text fx:id="nicknameText" fill="#008fd8" strokeType="OUTSIDE" strokeWidth="0.0" text="damrod">
                <font>
@@ -131,7 +144,4 @@
          </padding>
       </VBox>
    </children>
-   <padding>
-      <Insets right="48.0" />
-   </padding>
 </HBox>

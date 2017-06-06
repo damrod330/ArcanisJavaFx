@@ -9,6 +9,7 @@ import java.util.List;
  * Created by Damrod on 04.06.2017.
  */
 public interface PlayableCharactrService extends JpaRepository<PlayableCharacter, Long> {
-    List<PlayableCharacter> findAll ();
-    PlayableCharacter findByPlayableCharacterId (long id);
+    List<PlayableCharacter> findAll();
+
+    PlayableCharacter findByPlayableCharacterId(long id);
 }

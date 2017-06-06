@@ -58,7 +58,7 @@ public class MainMenuController implements BootInitializable {
             Text text = (Text) vBox.getChildren().get(1);
             text.setFill(Color.BLACK);
         }
-        newButton.getParent().setStyle("-fx-background-color: black");
+        newButton.getParent().setStyle("-fx-background-color:  #5d6e7f");
         VBox vBox = (VBox) newButton.getParent();
         Text text = (Text) vBox.getChildren().get(1);
         text.setFill(Color.WHITE);
@@ -105,6 +105,7 @@ public class MainMenuController implements BootInitializable {
 
     @FXML
     void btnQuestPageClicked(MouseEvent event) {
+        pageController.setPage(ArcanisApplication.pageQuest);
         highlightClickedButton(currentButton, btnQuestPage);
         currentButton = btnQuestPage;
     }

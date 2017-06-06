@@ -4,6 +4,7 @@ import com.example.demo.ArcanisApplication;
 import com.example.demo.controller.ChooseCharacterPageController;
 import com.example.demo.controller.MainMenuController;
 import com.example.demo.controller.MainPageController;
+import com.example.demo.controller.QuestPageController;
 import com.example.demo.model.PlayableCharacter;
 import com.example.demo.model.User;
 import com.example.demo.services.UserService;
@@ -54,10 +55,14 @@ public class Session implements ApplicationContextAware {
         List<PlayableCharacter> list =  user.getCharacter();
         currentCharacter = list.get(0);
 
+        //load pages
         MainPageController mainPageController = springContext.getBean(MainPageController.class);
         pageController.loadPageWithContorller(ArcanisApplication.pageMain, ArcanisApplication.pageMainFile, mainPageController);
-        pageController.setPage(ArcanisApplication.pageMain);
 
+        QuestPageController questPageController = springContext.getBean(QuestPageController.class);
+        pageController.loadPageWithContorller(ArcanisApplication.pageQuest, ArcanisApplication.pageQuestFile, questPageController);
+
+        pageController.setPage(ArcanisApplication.pageMain);
 
         //load menu
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene/MainMenu.fxml"));

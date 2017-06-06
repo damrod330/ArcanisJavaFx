@@ -31,13 +31,12 @@ public class MainPageController implements BootInitializable {
 
     private ApplicationContext springContext;
     private PageController pageController;
+    private PlayableCharacter character;
 
     @Autowired
     PlayableCharactrService playableCharactrService;
 
     private void updateAllViews(){
-        Session session = springContext.getBean(Session.class);
-        PlayableCharacter character = session.getCurrentCharacter();
         nicknameText.setText(character.getName());
         levelText.setText(String.valueOf(character.getLevel()));
         expText.setText(String.valueOf(character.getExperience()) + "/"+character.getExperienceRequaiered());
@@ -63,6 +62,8 @@ public class MainPageController implements BootInitializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Session session = springContext.getBean(Session.class);
+        character = session.getCurrentCharacter();
         updateAllViews();
     }
 
@@ -119,8 +120,6 @@ public class MainPageController implements BootInitializable {
 
     @FXML
     void buttonAddDexClicked(MouseEvent event) {
-        Session session = springContext.getBean(Session.class);
-        PlayableCharacter character = session.getCurrentCharacter();
         character.setDexterity(character.getDexterity()+1);
         character.setUnusedPoints(character.getUnusedPoints()-1);
         updateAllViews();
@@ -129,8 +128,6 @@ public class MainPageController implements BootInitializable {
 
     @FXML
     void buttonAddIntClicked(MouseEvent event) {
-        Session session = springContext.getBean(Session.class);
-        PlayableCharacter character = session.getCurrentCharacter();
         character.setInteligence(character.getInteligence()+1);
         character.setUnusedPoints(character.getUnusedPoints()-1);
         updateAllViews();
@@ -139,8 +136,6 @@ public class MainPageController implements BootInitializable {
 
     @FXML
     void buttonAddStrClicked(MouseEvent event) {
-        Session session = springContext.getBean(Session.class);
-        PlayableCharacter character = session.getCurrentCharacter();
         character.setStrenght(character.getStrenght()+1);
         character.setUnusedPoints(character.getUnusedPoints()-1);
         updateAllViews();
@@ -150,9 +145,6 @@ public class MainPageController implements BootInitializable {
 
     @FXML
     void buttonLevelUpClicked(MouseEvent event) {
-        Session session = springContext.getBean(Session.class);
-        PlayableCharacter character = session.getCurrentCharacter();
-
         if(character.getExperience() >= character.getExperienceRequaiered()) {
             character.setExperience(character.getExperience() -character.getExperienceRequaiered());
             character.setUnusedPoints(character.getUnusedPoints()+10);

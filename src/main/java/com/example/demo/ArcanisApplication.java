@@ -1,12 +1,14 @@
 package com.example.demo;
 
 import com.example.demo.controller.LoginPageController;
+import com.example.demo.controller.RegisterPageController;
 import com.example.demo.controller.utility.PageController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -62,12 +64,12 @@ public class ArcanisApplication extends Application{
 			PageController pageContainer = springContext.getBean(PageController.class);
 
 			LoginPageController loginPageController = springContext.getBean(LoginPageController.class);
-
 			pageContainer.loadPageWithContorller(ArcanisApplication.pageLogin, ArcanisApplication.pageLOginFile, loginPageController);
 
-			pageContainer.setPage(ArcanisApplication.pageLogin);
+			pageContainer.setPage(ArcanisApplication.pageRegister);
 
 			BorderPane root = new BorderPane();
+			root.setStyle("-fx-background-color: white");
 			root.setCenter(pageContainer);
 
         	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene/MainLogo.fxml"));
@@ -77,7 +79,6 @@ public class ArcanisApplication extends Application{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-
 			Scene scene = new Scene(root);
 			scene.setOnKeyPressed(event -> {
 				if (event.getCode() == KeyCode.F12 && !primaryStage.isFullScreen()) {

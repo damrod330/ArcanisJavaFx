@@ -13,15 +13,18 @@ public class PlayableCharacter {
     private long playableCharacterId;
     private String name;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private PlayableCharacterRace characterRace;
-
-    @OneToOne( fetch = FetchType.EAGER)
-    private PlayableCharacterClass characterClass;
-
     private int level;
     private int experience;
-    private int experienceRequaiered;
+
+    public int getExperienceRequaiered() {
+        return ExperienceRequaiered;
+    }
+
+    public void setExperienceRequaiered(int experienceRequaiered) {
+        ExperienceRequaiered = experienceRequaiered;
+    }
+
+    private int ExperienceRequaiered;
 
     private int maxHp;
     private int currentHp;
@@ -52,14 +55,6 @@ public class PlayableCharacter {
 
     public int getLevel() {
         return level;
-    }
-
-    public int getExperienceRequaiered() {
-        return experienceRequaiered;
-    }
-
-    public void setExperienceRequaiered(int experienceRequaiered) {
-        this.experienceRequaiered = experienceRequaiered;
     }
 
     public void setLevel(int level) {
