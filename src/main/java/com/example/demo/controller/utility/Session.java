@@ -58,11 +58,8 @@ public class Session implements ApplicationContextAware {
         //load pages
         MainPageController mainPageController = springContext.getBean(MainPageController.class);
         pageController.loadPageWithContorller(ArcanisApplication.pageMain, ArcanisApplication.pageMainFile, mainPageController);
-        QuestPageController questPageController = springContext.getBean(QuestPageController.class);
-        pageController.loadPageWithContorller(ArcanisApplication.pageQuest, ArcanisApplication.pageQuestFile, questPageController);
 
         pageController.setPage(ArcanisApplication.pageMain);
-
         //load menu
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene/MainMenu.fxml"));
         MainMenuController mainMenuController = springContext.getBean(MainMenuController.class);

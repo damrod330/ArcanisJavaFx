@@ -98,6 +98,9 @@ public class MainMenuController implements BootInitializable {
 
     @FXML
     void btnMainPageClicked(MouseEvent event) {
+        MainPageController mainPageController = springContext.getBean(MainPageController.class);
+        pageController.loadPageWithContorller(ArcanisApplication.pageMain, ArcanisApplication.pageMainFile, mainPageController);
+
         pageController.setPage(ArcanisApplication.pageMain);
         highlightClickedButton(currentButton, btnMainPage);
         currentButton = btnMainPage;

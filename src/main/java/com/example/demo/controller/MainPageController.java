@@ -150,6 +150,7 @@ public class MainPageController implements BootInitializable {
             character.setUnusedPoints(character.getUnusedPoints()+10);
             character.setLevel(character.getLevel()+1);
             character.setExperienceRequaiered(character.getExperienceRequaiered()+ 20*character.getExperienceRequaiered()/100);
+            character.setCurrentHp(character.getMaxHp());
             playableCharactrService.save(character);
             updateAllViews();
         }

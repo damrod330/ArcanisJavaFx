@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="0.0">com.example.demo.model.PlayableCharacter</node>
+    <node x="1428.0" y="0.0">com.example.demo.model.Quest</node>
+    <node x="0.0" y="1396.0">com.example.demo.model.User</node>
+    <node x="575.0" y="1396.0">com.example.demo.model.Item</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.8" x="363.125" y="183.25" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

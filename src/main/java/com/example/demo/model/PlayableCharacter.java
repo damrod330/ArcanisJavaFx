@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by Damrod on 02.06.2017.
@@ -15,15 +16,6 @@ public class PlayableCharacter {
 
     private int level;
     private int experience;
-
-    public int getExperienceRequaiered() {
-        return ExperienceRequaiered;
-    }
-
-    public void setExperienceRequaiered(int experienceRequaiered) {
-        ExperienceRequaiered = experienceRequaiered;
-    }
-
     private int ExperienceRequaiered;
 
     private int maxHp;
@@ -42,6 +34,38 @@ public class PlayableCharacter {
     private int NatureRes;
 
     private boolean isDead;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Quest questinProgress;
+
+
+    public Timestamp getQuestionInPregressEndingDate() {
+        return questionInPregressEndingDate;
+    }
+
+    public void setQuestionInPregressEndingDate(Timestamp questionInPregressEndingDate) {
+        this.questionInPregressEndingDate = questionInPregressEndingDate;
+    }
+
+    private Timestamp questionInPregressEndingDate;
+
+
+    public Quest getQuestinProgress() {
+        return questinProgress;
+    }
+
+    public void setQuestinProgress(Quest questinProgress) {
+        this.questinProgress = questinProgress;
+    }
+
+    public int getExperienceRequaiered() {
+        return ExperienceRequaiered;
+    }
+
+    public void setExperienceRequaiered(int experienceRequaiered) {
+        ExperienceRequaiered = experienceRequaiered;
+    }
+
 
     public int getUnusedPoints() {
         return unusedPoints;

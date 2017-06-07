@@ -18,10 +18,38 @@ public class Quest {
     private String title;
     private String description;
 
+    private int duration;
+
+    private int reward;
+    private String hpLoss;
 
     private int baseHpCost;
     private int expReward;
     private int questCp;
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+    public String getHpLoss() {
+        return hpLoss;
+    }
+
+    public void setHpLoss(String hpLoss) {
+        this.hpLoss = hpLoss;
+    }
 
     public long getQuestId() {
         return questId;
