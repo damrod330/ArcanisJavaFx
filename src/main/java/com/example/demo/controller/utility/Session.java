@@ -7,6 +7,7 @@ import com.example.demo.controller.MainPageController;
 import com.example.demo.controller.QuestPageController;
 import com.example.demo.model.PlayableCharacter;
 import com.example.demo.model.User;
+import com.example.demo.services.PlayableCharactrService;
 import com.example.demo.services.UserService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,6 +30,9 @@ public class Session implements ApplicationContextAware {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    PlayableCharactrService playableCharactrService;
 
     private ApplicationContext springContext;
     private PageController pageController;
@@ -79,7 +83,7 @@ public class Session implements ApplicationContextAware {
     public void logout(){
         BorderPane mainContainer = (BorderPane)pageController.getParent();
         mainContainer.setTop(null);
-
+        playableCharactrService.save(currentCharacter);
         //load logo
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/scene/MainLogo.fxml"));
         try {

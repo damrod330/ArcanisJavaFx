@@ -25,7 +25,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.*;
@@ -41,8 +40,7 @@ public class QuestPageController implements BootInitializable {
     private PageController pageController;
     private PlayableCharacter character;
     private int timeLeft;
-    private boolean started = false;
-
+    private boolean started;
     @Autowired
     PlayableCharactrService playableCharactrService;
 
@@ -51,6 +49,7 @@ public class QuestPageController implements BootInitializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         Session session = springContext.getBean(Session.class);
         character = session.getCurrentCharacter();
 
@@ -147,14 +146,6 @@ public class QuestPageController implements BootInitializable {
 
     @FXML
     void buttonEndQuestClicked(MouseEvent event) {
-        buttonBeginQuest.setDisable(false);
-        character.setExperience(character.getExperience()+ character.getQuestinProgress().getExpReward());
-        character.setQuestionInPregressEndingDate(null);
-        character.setQuestinProgress(null);
-        character.setCurrentHp(character.getCurrentHp() - new Random().nextInt(10));
-        buttonEndQuest.setText("Select Quest");
-        buttonEndQuest.setDisable(true);
-        playableCharactrService.save(character);
     }
 
     @FXML
@@ -181,23 +172,43 @@ public class QuestPageController implements BootInitializable {
     }
 
     private void startTimer( int period){
+
         if(!started && character.getQuestionInPregressEndingDate() != null) {
             started = true;
             int seconds = period / 1000;
-            timeLeft = seconds;
+            character.setTimeLeft(seconds);
             Timeline timeline = new Timeline(new KeyFrame(
                     Duration.millis(1000),
                     ae -> {
-                        timeLeft--;
-                        System.out.print(timeLeft);
-                        buttonEndQuest.setText("Sec left: " + timeLeft);
+                        if(character.getTimeLeft() < 0)
+                        {
+                            Timeline t = (Timeline)ae.getSource();
+                            t.stop();
+                        }
+
+                        character.setTimeLeft(character.getTimeLeft()-1);
+                        System.out.println(character.getTimeLeft());
+                        buttonEndQuest.setText("Sec left: " + character.getTimeLeft());
                     }));
             timeline.setCycleCount(seconds);
+
             timeline.setOnFinished(event -> {
+
                 started = false;
                 System.out.print("done");
-                buttonEndQuest.setText("Collect reward");
-                buttonEndQuest.setDisable(false);
+
+                buttonBeginQuest.setDisable(false);
+                character.setExperience(character.getExperience()+ character.getQuestinProgress().getExpReward());
+                currentQuestTitleText.setText("Result: +"+character.getQuestinProgress().getExpReward()+" exp");
+
+                character.setQuestionInPregressEndingDate(null);
+                character.setQuestinProgress(null);
+                character.setCurrentHp(character.getCurrentHp() - new Random().nextInt(10));
+                buttonEndQuest.setText("Select Quest");
+                buttonEndQuest.setDisable(true);
+                playableCharactrService.save(character);
+
+
             });
             timeline.play();
         }

@@ -38,6 +38,16 @@ public class PlayableCharacter {
     @ManyToOne(fetch = FetchType.EAGER)
     private Quest questinProgress;
 
+    public int getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void setTimeLeft(int timeLeft) {
+        this.timeLeft = timeLeft;
+    }
+
+    private int timeLeft;
+
 
     public Timestamp getQuestionInPregressEndingDate() {
         return questionInPregressEndingDate;
